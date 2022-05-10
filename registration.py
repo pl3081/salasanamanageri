@@ -1,13 +1,8 @@
-from importlib.resources import path
 from cryptography.fernet import Fernet
 import tkinter as tk
 from tkinter import *
 import os
 import hashlib
-
-from matplotlib.style import use
-
-
 
 
 
@@ -22,7 +17,7 @@ class Register():
             password = password_entry.get().encode()
             encrypted_password = hashlib.sha256(password).hexdigest()
             return encrypted_password
-            
+                
 
 
         def registratration():
@@ -39,7 +34,8 @@ class Register():
             with open(password_path + "/" + "password.txt", 'x') as f:
                 f.writelines(password)
                 f.close()
-            
+                
+        
         
 
 

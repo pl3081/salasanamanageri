@@ -2,7 +2,8 @@ from tkinter import *
 import tkinter as tk
 from cryptography.fernet import Fernet
 from registration import Register
-
+import hashlib
+import os
 
 
 
@@ -28,7 +29,22 @@ password_entry.grid(row=4, column=0)
 
 
 def login_button():
-    pass
+    get_username = username_entry.get()
+    get_password = password_entry.get().encode()
+    encrypted_password = hashlib.sha256(get_password).hexdigest()
+    parent_directory = "../salasanamanageri/login_details"
+    password_directory = get_username + "/" + "password"
+    path = os.path.join(parent_directory, password_directory)
+    try:
+        with open(path + "/" + "password.txt", 'r') as f:
+            data = f.readline()
+            f.close()
+        if encrypted_password == data:
+            print("kirjautuminen onnistui")
+        else:
+            print("syöttämäsi salasana ei ole oikea")
+    except:
+        print("kirjoittamaasi käyttäjänimeä ei ole olemassa")
 
 def registration_button():
     root.destroy()
