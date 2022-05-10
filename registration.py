@@ -1,7 +1,9 @@
+from importlib.resources import path
 from cryptography.fernet import Fernet
 import tkinter as tk
 from tkinter import *
 import os
+import hashlib
 
 from matplotlib.style import use
 
@@ -16,13 +18,27 @@ class Register():
     
     
     def Main():
+        def encrypt_password():
+            password = password_entry.get().encode()
+            encrypted_password = hashlib.sha256(password).hexdigest()
+            return encrypted_password
+            
+
+
         def registratration():
-            parent_dir = "/salasanamanageri/login_details"
+            par_directory = "../salasanamanageri/login_details"
             username = username_entry.get()
-            print(username)
-            print(type(parent_dir))
-            path = os.path.join(parent_dir, username)
-            os.mkdir(path=parent_dir, username) 
+            password = encrypt_password()
+            password_directory = username + "/" + "password"
+            directory = username
+            path = os.path.join(par_directory, directory)
+            password_path = os.path.join(par_directory, password_directory)
+            os.makedirs(path)
+            os.makedirs(password_path)
+
+            with open(password_path + "/" + "password.txt", 'x') as f:
+                f.writelines(password)
+                f.close()
             
         
 

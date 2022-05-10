@@ -3,6 +3,11 @@ import tkinter as tk
 from cryptography.fernet import Fernet
 from registration import Register
 
+
+
+
+
+
 root = Tk()
 
 
