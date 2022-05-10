@@ -1,0 +1,58 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter.messagebox import showinfo
+
+root = tk.Tk()
+root.geometry('300x200')
+root.resizable(False, False)
+root.title('Password manager UI')
+
+# Buttons
+button1=tk.Button(root, text="button1")
+button1.grid(row=1,column=0)
+
+button2=tk.Button(root, text="button2")
+button2.grid(row=2,column=0)
+
+
+# Passwords
+root.columnconfigure(0, weight=0)
+root.rowconfigure(0, weight=0)
+
+passwords = ('Pass 1', 'Pass 2', 'Pass 3')
+
+passwords_var = tk.StringVar(value=passwords)
+
+listbox = tk.Listbox(
+    root,
+    listvariable=passwords_var,
+    selectmode='extended')
+
+listbox.grid(
+    column=1,
+    row=0,
+    sticky='nwes'
+)
+
+# Websites
+root.columnconfigure(2, weight=1)
+root.rowconfigure(0, weight=1)
+
+passwords = ('Web 1', 'Web 2', 'Web 3')
+
+passwords_var = tk.StringVar(value=passwords)
+
+listbox = tk.Listbox(
+    root,
+    listvariable=passwords_var,
+    height=6,
+    selectmode='extended')
+
+listbox.grid(
+    column=3,
+    row=0,
+    sticky='nwes'
+)
+
+
+root.mainloop()
