@@ -1,24 +1,27 @@
 import tkinter as tk
 from tkinter import *
 
-root = tk.Tk()
-root.geometry('1280x720')
-root.title('Password manager UI')
+class Example(tk.Frame):
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
 
-# Buttons
-button1=tk.Button(root, text="button1")
-button1.grid(row=0,column=0)
+        self.buttons = []
+        for i in range(6):
+            self.buttons.append(tk.Button(self, text="Button %s" % (i+1,), background="gray"))
+        self.main = tk.Frame(self, background="blue")
+        self.buttons[0].grid(row=0, column=0, sticky="nsew")
+        self.buttons[1].grid(row=1, column=0, sticky="nsew")
+        self.main.grid(row=2, column=2, columnspan=2, rowspan=6)
 
-button2=tk.Button(root, text="button2")
-button2.grid(row=1,column=0)
+        for row in range(8):
+            self.grid_rowconfigure(row, weight=1)
+        for col in range(3):
+            self.grid_columnconfigure(col, weight=1)
 
-# Passwords
-D = {'d1': {'a':'1'}, 'd2': {'b':'2'}, 'd3': {'c':'3'}}
 
-lb = Label(root, text='')
-lb['text'] = '\n'.join('{} {}'.format(k, d) for k, d in D.items())
-lb.grid(row=2, column=0)
 
-# Websites
-
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    Example(root).pack(fill="both", expand=True)
+    root.geometry("800x400")
+    root.mainloop()
