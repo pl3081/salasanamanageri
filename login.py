@@ -60,5 +60,9 @@ login_button.grid(row=4,column=1)
 registation_button = tk.Button(text="Rekisteröidy", command=registration_button)
 registation_button.grid(row=5, column=0)
 
+
+if not os.path.exists("../salasanamanageri/login_details"):
+    os.makedirs("../salasanamanageri/login_details")
+
     
 root.mainloop()
