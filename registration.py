@@ -13,13 +13,14 @@ class Register():
     
     
     def Main():
+        #encrypts the given password in hash256
         def encrypt_password():
             password = password_entry.get().encode()
             encrypted_password = hashlib.sha256(password).hexdigest()
             return encrypted_password
                 
 
-
+        #creates the folders and password files needed for login
         def registratration():
             par_directory = "../salasanamanageri/login_details"
             username = username_entry.get()

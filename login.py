@@ -27,7 +27,7 @@ password_text.grid(row=3, column=0)
 password_entry = tk.Entry()
 password_entry.grid(row=4, column=0)
 
-
+#defines what the login button does
 def login_button():
     get_username = username_entry.get()
     get_password = password_entry.get().encode()
@@ -45,7 +45,7 @@ def login_button():
             print("syöttämäsi salasana ei ole oikea")
     except:
         print("kirjoittamaasi käyttäjänimeä ei ole olemassa")
-
+#opens the registeration screen
 def registration_button():
     root.destroy()
     Register.Main()

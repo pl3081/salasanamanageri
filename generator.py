@@ -28,16 +28,16 @@ def main():
 		return "".join(password)
 
 	root = Tk()
+	#used because tkinter buttons don't take arguments without executing the command before the button is pressed
 	def generate():
 		generate_random_password(int(password_length.get()))
 
-
+	#copies the password to clipboard
 	def copy_to_clipboard():
 		pyperclip.copy(password_label.cget("text"))
 		
 	
 	password_length = tk.Entry(text="Enter password length: ")
-	
 	
 	submit_button = tk.Button(text="submit", command=generate)
 	
