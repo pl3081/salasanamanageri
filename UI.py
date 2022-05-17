@@ -1,27 +1,19 @@
 import tkinter as tk
 from tkinter import *
 
-class PassManager(tk.Frame):
-    def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
+root = tk.Tk()
+root.title("Password Manager")
 
-        self.buttons = []
-        for i in range(4):
-            self.buttons.append(tk.Button(self, text="Button %s" % (i+1,), background="gray"))
-        self.main = tk.Frame(self)
-        self.buttons[0].grid(row=0, column=1, sticky="nsew")
-        self.buttons[1].grid(row=1, column=1, sticky="nsew")
-        self.main.grid(row=2, column=2, columnspan=2, rowspan=6)
+PassAndURL = tk.Frame(root)
+PassAndURL.pack()
 
-        for row in range(10):
-            self.grid_rowconfigure(row, weight=1)
-        for col in range(3):
-            self.grid_columnconfigure(col, weight=1)
+listbox_URL = tk.Listbox(PassAndURL, height=10, width=48)
+listbox_URL.pack(side=tk.TOP)
 
+Button1= tk.Button(root, text="Button 1", width=48)
+Button1.pack()
 
+Button2 = tk.Button(root, text="Button 2", width=48)
+Button2.pack()
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    PassManager(root).pack(fill="both", expand=True)
-    root.geometry("800x400")
-    root.mainloop()
+root.mainloop()
