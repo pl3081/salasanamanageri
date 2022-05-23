@@ -28,6 +28,8 @@ def main():
 		return "".join(password)
 
 	root = Tk()
+	generator_frame = Frame(root)
+	generator_frame.grid()
 	#used because tkinter buttons don't take arguments without executing the command before the button is pressed
 	def generate():
 		generate_random_password(int(password_length.get()))
@@ -37,13 +39,13 @@ def main():
 		pyperclip.copy(password_label.cget("text"))
 		
 	
-	password_length = tk.Entry(text="Enter password length: ")
+	password_length = tk.Entry(generator_frame,text="Enter password length: ")
 	
-	submit_button = tk.Button(text="submit", command=generate)
+	submit_button = tk.Button(generator_frame,text="submit", command=generate)
 	
-	password_label = Label(text="")
+	password_label = Label(generator_frame,text="")
 	
-	copy_password = Button(text="copy to clipboard", command=copy_to_clipboard)
+	copy_password = Button(generator_frame,text="copy to clipboard", command=copy_to_clipboard)
 	
 	
 		
@@ -52,4 +54,3 @@ def main():
 	password_label.grid(row=3, column=0)
 	copy_password.grid(row=4, column=0)
 	root.mainloop()
-main()

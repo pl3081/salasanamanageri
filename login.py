@@ -4,12 +4,13 @@ from cryptography.fernet import Fernet
 from registration import Register
 import hashlib
 import os
+import UI
 
 
 
 
 
-root = Tk()
+root = tk.Tk()
 
 
 base_text = tk.Label(text="Kirjaudu sisään")
@@ -41,13 +42,15 @@ def login_button():
             f.close()
         if encrypted_password == data:
             print("kirjautuminen onnistui")
+            root.destroy()
+            UI.main()
         else:
             print("syöttämäsi salasana ei ole oikea")
     except:
         print("kirjoittamaasi käyttäjänimeä ei ole olemassa")
+
 #opens the registeration screen
 def registration_button():
-    root.destroy()
     Register.Main()
     
     

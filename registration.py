@@ -40,23 +40,26 @@ class Register():
         
 
 
-        reg_root = Tk()
-        base_text = tk.Label(text="Rekisteröidy")
+        reg_root = tk.Tk()
+        reg_frame = Frame(reg_root)
+        reg_frame.grid()
+        
+        base_text = tk.Label(reg_frame,text="Rekisteröidy")
         base_text.grid(row=0, column=0)
 
-        username_text = tk.Label(text="Käyttäjänimi")
+        username_text = tk.Label(reg_frame,text="Käyttäjänimi")
         username_text.grid(row=1, column=0)
 
-        username_entry = tk.Entry()
+        username_entry = tk.Entry(reg_frame,)
         username_entry.grid(row=2, column=0)
 
-        password_text = tk.Label(text="salasana")
+        password_text = tk.Label(reg_frame,text="salasana")
         password_text.grid(row=3, column=0)
 
-        password_entry = tk.Entry()
+        password_entry = tk.Entry(reg_frame,)
         password_entry.grid(row=4, column=0)
 
-        registration_button = tk.Button(text="rekisteröidy", command=registratration)
+        registration_button = tk.Button(reg_frame,text="rekisteröidy", command=registratration)
         registration_button.grid(row=4,column=1)
         reg_root.mainloop()
 
