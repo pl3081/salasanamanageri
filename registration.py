@@ -1,3 +1,4 @@
+from logging import root
 from cryptography.fernet import Fernet
 import tkinter as tk
 from tkinter import *
@@ -25,16 +26,23 @@ class Register():
             par_directory = "../salasanamanageri/login_details"
             username = username_entry.get()
             password = encrypt_password()
-            password_directory = username + "/" + "password"
+            login_directory = username + "/" + "password"
+            passwords_directory = username + "/" + "passwords"
             directory = username
             path = os.path.join(par_directory, directory)
-            password_path = os.path.join(par_directory, password_directory)
+            login_path = os.path.join(par_directory, login_directory)
+            passwords_path = os.path.join(par_directory, passwords_directory)
             os.makedirs(path)
-            os.makedirs(password_path)
+            os.makedirs(login_path)
+            os.makedirs(passwords_path)
 
-            with open(password_path + "/" + "password.txt", 'x') as f:
+            with open(passwords_path + "/" + "passwords.txt", 'x') as f:
+                f.close()
+
+            with open(login_path + "/" + "password.txt", 'x') as f:
                 f.writelines(password)
                 f.close()
+            reg_root.destroy()
                 
         
         
