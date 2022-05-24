@@ -1,14 +1,16 @@
-from importlib.resources import path
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+from tkinter.tix import ROW
+from turtle import right
 import generator
 import new_password
 
 
+
 def main(user):
     
-    
+    #key = file_encryption.load_key(user)
     root = tk.Tk()
     root.title("Password Manager")
 
@@ -19,14 +21,13 @@ def main(user):
     tree.heading("password", text="password")
     
     passwords = []
+    
 
     with open(user + "/" + "passwords.txt", "r") as a_file:
-
         for line in a_file:
             splitted_line = line.split(":")
             passwords.append((f'{splitted_line[0]}', f'{splitted_line[1]}'))
         a_file.close()
-        
     # add data to the treeview
     for password in passwords:
         tree.insert('', tk.END, values=password)
@@ -41,7 +42,7 @@ def main(user):
     Button2 = tk.Button(root, text="salasanageneraattori", width=48, height=5, command=generator.main)
     
     
-    Button1.grid(row=0, column=0)
-    Button2.grid(row=1, column=0)
-    tree.grid(row=0, column=1, rowspan=2)
+    Button1.pack(side=TOP, fill=BOTH, expand=TRUE ,padx= 10)
+    Button2.pack(side=TOP, fill=BOTH, expand=TRUE ,padx= 10)
+    tree.pack(side=RIGHT, fill=BOTH, expand=TRUE, padx= 10)
     root.mainloop()

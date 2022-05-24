@@ -8,6 +8,7 @@ import hashlib
 
 
 
+
 class Register():
     
 
@@ -43,32 +44,37 @@ class Register():
                 f.writelines(password)
                 f.close()
             reg_root.destroy()
-                
+            
+
+        
+
+
         
         
 
 
         reg_root = tk.Tk()
         reg_frame = Frame(reg_root)
-        reg_frame.grid()
+        reg_root.geometry("300x150")
+        reg_frame.pack(side=TOP,fill=BOTH, expand=TRUE)
         
         base_text = tk.Label(reg_frame,text="Rekisteröidy")
-        base_text.grid(row=0, column=0)
+        base_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
         username_text = tk.Label(reg_frame,text="Käyttäjänimi")
-        username_text.grid(row=1, column=0)
+        username_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
         username_entry = tk.Entry(reg_frame,)
-        username_entry.grid(row=2, column=0)
+        username_entry.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
         password_text = tk.Label(reg_frame,text="salasana")
-        password_text.grid(row=3, column=0)
+        password_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
         password_entry = tk.Entry(reg_frame,)
-        password_entry.grid(row=4, column=0)
+        password_entry.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
         registration_button = tk.Button(reg_frame,text="rekisteröidy", command=registratration)
-        registration_button.grid(row=4,column=1)
+        registration_button.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
         reg_root.mainloop()
 
     

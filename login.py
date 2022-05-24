@@ -11,22 +11,22 @@ import UI
 def main():
 
     root = tk.Tk()
-
+    root.geometry("300x200")
 
     base_text = tk.Label(text="Kirjaudu sisään")
-    base_text.grid(row=0, column=0)
+    base_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
     username_text = tk.Label(text="Käyttäjänimi")
-    username_text.grid(row=1, column=0)
+    username_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10 )
 
     username_entry = tk.Entry()
-    username_entry.grid(row=2, column=0)
+    username_entry.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
     password_text = tk.Label(text="salasana")
-    password_text.grid(row=3, column=0)
+    password_text.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
     password_entry = tk.Entry()
-    password_entry.grid(row=4, column=0)
+    password_entry.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
     #defines what the login button does
     def login_button():
@@ -61,10 +61,10 @@ def main():
 
 
     login_button = tk.Button(text="login", command=login_button)
-    login_button.grid(row=4,column=1)
+    login_button.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10, pady=5)
 
     registation_button = tk.Button(text="Rekisteröidy", command=registration_button)
-    registation_button.grid(row=5, column=0)
+    registation_button.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10, pady=5)
 
 
     if not os.path.exists("../salasanamanageri/login_details"):
