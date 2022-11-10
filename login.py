@@ -7,9 +7,8 @@ import os
 import UI
 
 
-
+#Builds the structure of the login screen
 def main():
-
     root = tk.Tk()
     root.geometry("300x200")
 
@@ -28,7 +27,7 @@ def main():
     password_entry = tk.Entry()
     password_entry.pack(side=TOP, fill=BOTH, expand=TRUE, padx= 10)
 
-    #defines what the login button does
+    #defines what the login button does and handles the login details
     def login_button():
         get_username = username_entry.get()
         get_password = password_entry.get().encode()
@@ -46,7 +45,7 @@ def main():
                 print("kirjautuminen onnistui")
                 root.destroy()
                 UI.main(username_directory + "/" + "passwords")
-
+        #these two print statements were ment to be debug messages so they won't show up in the program yet
             else:
                 print("syöttämäsi salasana ei ole oikea")
         except:

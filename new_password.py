@@ -1,9 +1,9 @@
 from tkinter import *
 import tkinter as tk
  
-
+#Builds the new password screen
 def main(path):
-
+    #adds a password to a given url
     def add_password():
         website = website_entry.get()
         password = password_entry.get()

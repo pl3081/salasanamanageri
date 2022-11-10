@@ -7,10 +7,9 @@ import generator
 import new_password
 
 
-
+#builds the main window ui
 def main(user):
     
-    #key = file_encryption.load_key(user)
     root = tk.Tk()
     root.title("Password Manager")
 
@@ -22,17 +21,16 @@ def main(user):
     
     passwords = []
     
-
+    #reads the password and url from a file and displays it
     with open(user + "/" + "passwords.txt", "r") as a_file:
         for line in a_file:
             splitted_line = line.split(":")
             passwords.append((f'{splitted_line[0]}', f'{splitted_line[1]}'))
         a_file.close()
-    # add data to the treeview
     for password in passwords:
         tree.insert('', tk.END, values=password)
 
-
+    #goest to the add password window
     def add_password():
         new_password.main(user)
 

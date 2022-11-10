@@ -13,7 +13,7 @@ class Register():
     
 
     
-    
+    #builds the registration menu
     def Main():
         #encrypts the given password in hash256
         def encrypt_password():
